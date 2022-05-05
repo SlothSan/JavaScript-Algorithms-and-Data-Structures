@@ -488,3 +488,230 @@ I am a "double quoted" string inside "double quotes".
 */
 
 var myStr = "I am a \"double quoted\" string inside \"double quotes\"."; // Change this line
+
+/*Quoting Strings with Single Quotes
+
+String values in JavaScript may be written with single or double quotes, as long as you start and end with the same type of quote. Unlike some other programming languages, single and double quotes work the same in JavaScript.
+
+const doubleQuoteStr = "This is a string"; 
+const singleQuoteStr = 'This is also a string';
+
+The reason why you might want to use one type of quote over the other is if you want to use both in a string. This might happen if you want to save a conversation in a string and have the conversation in quotes. Another use for it would be saving an <a> tag with various attributes in quotes, all within a string.
+
+const conversation = 'Finn exclaims to Jake, "Algebraic!"';
+
+However, this becomes a problem if you need to use the outermost quotes within it. Remember, a string has the same kind of quote at the beginning and end. But if you have that same quote somewhere in the middle, the string will stop early and throw an error.
+
+const goodStr = 'Jake asks Finn, "Hey, let\'s go on an adventure?"'; 
+const badStr = 'Finn responds, "Let's go!"';
+
+Here badStr will throw an error.
+
+In the goodStr above, you can use both quotes safely by using the backslash \ as an escape character.
+
+Note: The backslash \ should not be confused with the forward slash /. They do not do the same thing.
+
+Change the provided string to a string with single quotes at the beginning and end and no escape characters.
+
+Right now, the <a> tag in the string uses double quotes everywhere. You will need to change the outer quotes to single quotes so you can remove the escape characters.
+*/
+
+const myStr = '<a href="http://www.example.com" target="_blank">Link</a>';
+
+/*
+Escape Sequences in Strings
+
+Quotes are not the only characters that can be escaped inside a string. There are two reasons to use escaping characters:
+
+    To allow you to use characters you may not otherwise be able to type out, such as a carriage return.
+    To allow you to represent multiple quotes in a string without JavaScript misinterpreting what you mean.
+
+We learned this in the previous challenge.
+Code	Output
+\'	single quote
+\"	double quote
+\\	backslash
+\n	newline
+\r	carriage return
+\t	tab
+\b	word boundary
+\f	form feed
+
+Note that the backslash itself must be escaped in order to display as a backslash.
+
+Assign the following three lines of text into the single variable myStr using escape sequences.
+
+    FirstLine
+        \SecondLine
+    ThirdLine
+
+You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.
+
+Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.
+*/
+
+const myStr = "FirstLine\n\t\\SecondLine\nThirdLine"; // Change this line
+
+/*
+Concatenating Strings with Plus Operator
+
+In JavaScript, when the + operator is used with a String value, it is called the concatenation operator. You can build a new string out of other strings by concatenating them together.
+
+Example
+
+'My name is Alan,' + ' I concatenate.'
+
+Note: Watch out for spaces. Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.
+
+Example:
+
+const ourStr = "I come first. " + "I come second.";
+
+The string I come first. I come second. would be displayed in the console.
+
+Build myStr from the strings This is the start. and This is the end. using the + operator. Be sure to include a space between the two strings.
+*/
+const myStr = "This is the start. " + "This is the end."; // Change this line
+
+/*
+Concatenating Strings with the Plus Equals Operator
+
+We can also use the += operator to concatenate a string onto the end of an existing string variable. This can be very helpful to break a long string over several lines.
+
+Note: Watch out for spaces. Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.
+
+Example:
+
+let ourStr = "I come first. ";
+ourStr += "I come second.";
+
+ourStr now has a value of the string I come first. I come second..
+
+Build myStr over several lines by concatenating these two strings: This is the first sentence. and This is the second sentence. using the += operator. Use the += operator similar to how it is shown in the example and be sure to include a space between the two strings. Start by assigning the first string to myStr, then add on the second string.
+*/
+let myStr ="This is the first sentence. ";
+myStr += "This is the second sentence."
+/*onstructing Strings with Variables
+
+Sometimes you will need to build a string, Mad Libs style. By using the concatenation operator (+), you can insert one or more variables into a string you're building.
+
+Example:
+
+const ourName = "freeCodeCamp";
+const ourStr = "Hello, our name is " + ourName + ", how are you?";
+
+ourStr would have a value of the string Hello, our name is freeCodeCamp, how are you?.
+
+Set myName to a string equal to your name and build myStr with myName between the strings My name is and and I am well!
+*/
+// Only change code below this line
+const myName = "Mike Oram";
+const myStr = "My name is " + myName + " and I am well!";
+
+/*
+Appending Variables to Strings
+
+Just as we can build a string over multiple lines out of string literals, we can also append variables to a string using the plus equals (+=) operator.
+
+Example:
+
+const anAdjective = "awesome!";
+let ourStr = "freeCodeCamp is ";
+ourStr += anAdjective;
+
+ourStr would have the value freeCodeCamp is awesome!.
+
+Set someAdjective to a string of at least 3 characters and append it to myStr using the += operato
+*/
+// Change code below this line
+const someAdjective = "interesting!";
+let myStr = "Learning to code is ";
+myStr += someAdjective;
+/*Find the Length of a String
+
+You can find the length of a String value by writing .length after the string variable or string literal.
+
+console.log("Alan Peter".length);
+
+The value 10 would be displayed in the console. Note that the space character between "Alan" and "Peter" is also counted.
+
+For example, if we created a variable const firstName = "Ada", we could find out how long the string Ada is by using the firstName.length property.
+
+Use the .length property to set lastNameLength to the number of characters in lastName.
+*/
+// Setup
+let lastNameLength = 0;
+const lastName = "Lovelace";
+
+// Only change code below this line
+lastNameLength = lastName.length;
+/*Use Bracket Notation to Find the First Character in a String
+
+Bracket notation is a way to get a character at a specific index within a string.
+
+Most modern programming languages, like JavaScript, don't start counting at 1 like humans do. They start at 0. This is referred to as Zero-based indexing.
+
+For example, the character at index 0 in the word Charles is C. So if const firstName = "Charles", you can get the value of the first letter of the string by using firstName[0].
+
+Example:
+
+const firstName = "Charles";
+const firstLetter = firstName[0];
+
+firstLetter would have a value of the string C.
+
+Use bracket notation to find the first character in the lastName variable and assign it to firstLetterOfLastName.
+
+Hint: Try looking at the example above if you get stuck.
+*/
+// Setup
+let firstLetterOfLastName = "";
+const lastName = "Lovelace";
+
+// Only change code below this line
+firstLetterOfLastName = lastName[0]; // Change this line
+/*Understand String Immutability
+
+In JavaScript, String values are immutable, which means that they cannot be altered once created.
+
+For example, the following code:
+
+let myStr = "Bob";
+myStr[0] = "J";
+
+cannot change the value of myStr to Job, because the contents of myStr cannot be altered. Note that this does not mean that myStr cannot be changed, just that the individual characters of a string literal cannot be changed. The only way to change myStr would be to assign it with a new string, like this:
+
+let myStr = "Bob";
+myStr = "Job";
+
+Correct the assignment to myStr so it contains the string value of Hello World using the approach shown in the example above.
+*/
+// Setup
+let myStr = "Jello World";
+
+// Only change code below this line
+myStr = "Hello World"; // Change this line
+// Only change code above this line
+/*
+Use Bracket Notation to Find the Nth Character in a String
+
+You can also use bracket notation to get the character at other positions within a string.
+
+Remember that computers start counting at 0, so the first character is actually the zeroth character.
+
+Example:
+
+const firstName = "Ada";
+const secondLetterOfFirstName = firstName[1];
+
+secondLetterOfFirstName would have a value of the string d.
+
+Let's try to set thirdLetterOfLastName to equal the third letter of the lastName variable using bracket notation.
+
+Hint: Try looking at the example above if you get stuck.
+*/
+// Setup
+const lastName = "Lovelace";
+
+// Only change code below this line
+const thirdLetterOfLastName = lastName[2]; // Change this line
