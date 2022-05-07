@@ -922,3 +922,82 @@ const myArray = [["John", 23], ["cat", 2]];
 
 // Only change code below this line
 const removedFromMyArray = myArray.pop()
+
+/*Manipulate Arrays With shift()
+pop() always removes the last element of an array. What if you want to remove the first?
+
+That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+Example:
+
+const ourArray = ["Stimpson", "J", ["cat"]];
+const removedFromOurArray = ourArray.shift();
+removedFromOurArray would have a value of the string Stimpson, and ourArray would have ["J", ["cat"]].
+
+Use the .shift() function to remove the first item from myArray and assign the "shifted off" value to a new variable, removedFromMyArray.8?
+*/
+// Setup
+const myArray = [["John", 23], ["dog", 3]];
+
+// Only change code below this line
+const removedFromMyArray = myArray.shift();
+
+/*Manipulate Arrays With unshift()
+Not only can you shift elements off of the beginning of an array, you can also unshift elements to the beginning of an array i.e. add elements in front of the array.
+
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+Example:
+
+const ourArray = ["Stimpson", "J", "cat"];
+ourArray.shift();
+ourArray.unshift("Happy");
+After the shift, ourArray would have the value ["J", "cat"]. After the unshift, ourArray would have the value ["Happy", "J", "cat"].
+
+Add ["Paul", 35] to the beginning of the myArray variable using unshift().*/
+// Setup
+const myArray = [["John", 23], ["dog", 3]];
+myArray.shift();
+
+// Only change code below this line
+myArray.unshift(["Paul", 35]);
+console.log(myArray)
+
+/*Shopping List
+Create a shopping list in the variable myList. The list should be a multi-dimensional array containing several sub-arrays.
+
+The first element in each sub-array should contain a string with the name of the item. The second element should be a number representing the quantity i.e.
+
+["Chocolate Bar", 15]
+There should be at least 5 sub-arrays in the list.*/
+
+const myList = [
+    ["Chocolate", 15],
+    ["Orange", 10],
+    ["Apple", 9],
+    ["Bread", 4],
+    ["Ham", 2]
+  ];
+  
+  console.log(myList)
+
+  /*Write Reusable JavaScript with Functions
+In JavaScript, we can divide up our code into reusable parts called functions.
+
+Here's an example of a function:
+
+function functionName() {
+  console.log("Hello World");
+}
+You can call or invoke this function by using its name followed by parentheses, like this: functionName(); Each time the function is called it will print out the message Hello World on the dev console. All of the code between the curly braces will be executed every time the function is called.
+
+Create a function called reusableFunction which prints the string Hi World to the dev console.
+Call the function. */
+
+function reusableFunction () {
+    console.log("Hi World")
+  }
+  
+  reusableFunction()
+
+  /*
