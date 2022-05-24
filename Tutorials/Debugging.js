@@ -140,3 +140,104 @@ if(x == y) {
 }
 
 console.log(result);
+
+/*Catch Missing Open and Closing Parenthesis After a Function Call
+
+When a function or method doesn't take any arguments, you may forget to include the (empty) opening and closing parentheses when calling it. Often times the result of a function call is saved in a variable for other use in your code. This error can be detected by logging variable values (or their types) to the console and seeing that one is set to a function reference, instead of the expected value the function returns.
+
+The variables in the following example are different:
+
+function myFunction() {
+  return "You rock!";
+}
+let varOne = myFunction;
+let varTwo = myFunction();
+
+Here varOne is the function myFunction, and varTwo is the string You rock!.
+
+Fix the code so the variable result is set to the value returned from calling the function getNine.*/
+
+function getNine() {
+    let x = 6;
+    let y = 3;
+    return x + y;
+  }
+  
+  let result = getNine();
+  console.log(result);
+
+/*Catch Arguments Passed in the Wrong Order When Calling a Function
+
+Continuing the discussion on calling functions, the next bug to watch out for is when a function's arguments are supplied in the incorrect order. If the arguments are different types, such as a function expecting an array and an integer, this will likely throw a runtime error. If the arguments are the same type (all integers, for example), then the logic of the code won't make sense. Make sure to supply all required arguments, in the proper order to avoid these issues.
+
+The function raiseToPower raises a base to an exponent. Unfortunately, it's not called properly - fix the code so the value of power is the expected 8.*/
+
+function raiseToPower(b, e) {
+    return Math.pow(b, e);
+  }
+  
+  let base = 2;
+  let exp = 3;
+  let power = raiseToPower(base, exp);
+  console.log(power);
+
+/*Catch Off By One Errors When Using Indexing
+
+Off by one errors (sometimes called OBOE) crop up when you're trying to target a specific index of a string or array (to slice or access a segment), or when looping over the indices of them. JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length, the program may throw an "index out of range" reference error or print undefined.
+
+When you use string or array methods that take index ranges as arguments, it helps to read the documentation and understand if they are inclusive (the item at the given index is part of what's returned) or not. Here are some examples of off by one errors:
+
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let len = alphabet.length;
+for (let i = 0; i <= len; i++) {
+  console.log(alphabet[i]);
+}
+for (let j = 1; j < len; j++) {
+  console.log(alphabet[j]);
+}
+for (let k = 0; k < len; k++) {
+  console.log(alphabet[k]);
+}
+
+The first example here loops one too many times, and the second loops one too few times (missing the first index, 0). The third example is correct.
+
+Fix the two indexing errors in the following function so all the numbers 1 through 5 are printed to the console.*/
+
+function countToFive() {
+    let firstFive = "12345";
+    let len = firstFive.length;
+    // Only change code below this line
+    for (let i = 0; i < len; i++) {
+    // Only change code above this line
+      console.log(firstFive[i]);
+    }
+  }
+  
+  countToFive();
+
+/*Use Caution When Reinitializing Variables Inside a Loop
+
+Sometimes it's necessary to save information, increment counters, or re-set variables within a loop. A potential issue is when variables either should be reinitialized, and aren't, or vice versa. This is particularly dangerous if you accidentally reset the variable being used for the terminal condition, causing an infinite loop.
+
+Printing variable values with each cycle of your loop by using console.log() can uncover buggy behavior related to resetting, or failing to reset a variable.
+
+The following function is supposed to create a two-dimensional array with m rows and n columns of zeroes. Unfortunately, it's not producing the expected output because the row variable isn't being reinitialized (set back to an empty array) in the outer loop. Fix the code so it returns a correct 3x2 array of zeroes, which looks like [[0, 0], [0, 0], [0, 0]].*/
+
+function zeroArray(m, n) {
+  // Creates a 2-D array with m rows and n columns of zeroes
+  let newArray = [];
+  for (let i = 0; i < m; i++) {
+    // Adds the m-th row into newArray
+    let row = [];
+    for (let j = 0; j < n; j++) {
+      // Pushes n zeroes into the current row to create the columns
+      row.push(0);
+    }
+    // Pushes the current row, which now has n zeroes in it, to the array
+    newArray.push(row);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix);
