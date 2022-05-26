@@ -1,0 +1,25 @@
+Variables. 
+
+What is a variable ? 
+
+Any app we write, needs data. 
+
+JS Script variables are data. 
+
+Data is stored in the Computer memory. a easy way of addressing computer memory. english to represent a number. 
+
+variables need to be declared. 
+
+
+
+How to declare variables
+
+keyword special symbol in JS - let lets us declare variable.
+
+let total = 149.99;
+
+= takes the value and assigns to the variable, end with a semi colon. 
+
+let product = 'hiking boots'
+
+assings the string to the variable, putting it in quotes treats it as literal text. 
