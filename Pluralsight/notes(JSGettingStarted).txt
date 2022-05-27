@@ -490,3 +490,99 @@ function showMessage (message) {
 
 showMessage("First Message");
 showMessage("Second Message);
+
+function showMessage(message, anotherMessage) {
+    console.log(message, anotherMessage);
+}
+
+showMessage("First Message", "Second Message");
+
+
+let myFunction = function (message, firstName) {
+    console.log(message);
+    console.log(firstName);
+}
+
+myFunction("Hello", "Mike");
+
+
+need to make sure the paremeters are assigned data
+
+
+
+
+Function Return Values. 
+
+Can get info out of a fucntion using return keyword. 
+
+function getSecretCode(value) {
+    let code = value * 42;
+    return code;
+}
+
+console.log(getSecretCode(2)); would return 84 in the console. 
+
+if no return it will return undefined
+
+cleaner to return the variable created. 
+
+function getSecretCode(value) {
+    let code = value * 42;
+    return code;
+}
+
+let secretCode = getSecretCode(2);
+showMessage(secretCode);
+
+
+
+
+Function scope
+function scopes have there own scope, paramenters and variables only exist within the function, once done they dissapear. 
+
+function getSecretCode(value) {
+    let code = value * 42;
+    return code;
+}
+
+let secretCode = getSecretCode(2);
+console.log(code); // this would return undefined as its calling a variable outside of the scope of the function. 
+
+let key = 42;
+function getSecretCode(value) {
+    let code = value * key;
+    return code;
+}
+
+let secretCode = getSecretCode(2);
+console.log(secretCode); // functions can access global scope so this will work. 
+
+
+let key = 42;
+function getSecretCode(value) {
+    
+    let keyGenerator = function() {
+        let key = 12;
+        console.log('in keyGenerator', key);
+        return key;
+    }
+    
+    let code = value * keyGenerator();
+    cosnole.log("in secretCode", key);
+    return code;
+}
+
+let secretCode = getSecretCode(2);
+
+this would show key as 12 in the keyGenerator but 42 in getSecretCode due to it using global scope as keyGenerator has finished. 
+
+
+
+
+Using functions to modify webpages. 
+
+function changePercentOff(percentage) {
+    document.getElementById('percent-off').textContent = percentage + "% OFF";
+}
+
+changePercentOff(30);
