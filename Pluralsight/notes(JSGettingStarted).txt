@@ -22,4 +22,471 @@ let total = 149.99;
 
 let product = 'hiking boots'
 
-assings the string to the variable, putting it in quotes treats it as literal text. 
+assigns the string to the variable, putting it in quotes treats it as literal text. 
+
+let discounted = true;
+
+true is a boolean so doesn't need quotes JS knows what it is. so is false. 
+
+
+
+Using let to declare variables. 
+let price = 49.99,
+    name = 'Hiking Boots',
+    discounted = false;
+
+
+showMessage(name);
+
+
+
+Variable names
+
+can start with _ $ or a Letter (a)
+ 
+followed by zero or more: _ $ or letter or number.
+
+use descriptive names ie account instead of a. or accountNumber. 
+
+camelnotation for JS variables ie accountNumber second word and any onwards capitalized. 
+
+_accountnumber is valid - _ denotes private variables. 
+
+$accountNumber - generally used for auto generated code. 
+
+_123 - no descript do not use. 
+
+_proto_ - run into these for non standard features. 
+
+name your variable for the data being held to make things clearer !
+
+
+
+
+Common errors with variables.
+wrong syntax / empty / mispelling. 
+
+
+
+
+Changing variables 
+price = 59.99;
+
+
+
+
+Constants. 
+
+set and not change - use const 
+allows devs to look at your code and know its not gonna change. 
+eg 
+const price = 40.00; 
+can't be be changed. 
+needs to be declared with a value when created. 
+
+
+
+
+the var keyword. 
+
+var keyword is used in old code but let and const should be used now. 
+old way would be: 
+var price = 20;
+main difference between Var / let is var won't error if not declared before being used further up the code. 
+always use the let keyword not VAR !!!!
+
+
+
+
+
+Types & Operators. 
+
+Intro. 
+variables have types. 
+operators such as (+ * -)
+
+
+
+
+Numbers in JS. 
+Operator typeOf - operates or changes a value. 
+type of price would show "number" as a string. 
+
+let price = 30,
+    name = 'Hiking Boots',
+    discounted = false;
+showMessage(typeof price);
+
+
+once number in a variable can perform math operations on it. 
+
+for example adding : price = price + 1; 
+ minusing price = price - 1; 
+ multiplying price = price * 8; 
+ division price = price / 3;
+ remainder price = price % 4;
+
+does the same but shorthand. 
+price += 5;
+price -= 5;
+price *= 5;
+price /= 5;
+price %= 5;
+
+
+can work with multiple variables with operators. 
+showMessage(price * taxRate);
+
+Increments Operators
+These should be after the variable. 
+++ increments by 1. 
+-- decrements by -1. 
+
+
+
+
+
+Operator Precedence. 
+be careful of this with numbers in JS. 
+let price = 3 + 2 * 2 makes price 7 which is wrong due to the Precedence.
+multiplication and division and remainder always comes first in maths.
+MDN Operator precedence - check this chart of precedence of operators in JS. 
+
+to bypass the rules use parenthesis (anything in here will execute first)
+let price = (3 + 2) * 2;
+
+
+
+
+Number Precision.
+JS works with floating point numbers, large numbers with many decimal places this can cause issues. 
+eg. 
+price = 1.1 + 1.3 = 2.4000000000004
+this is inaccurate if you are comparing them. 
+
+
+
+
+Negative Numbers. 
+let price = -20;
+subtracting negative numbers 
+put em en parenthesis to make them clear that they are negative.
+let price = -20 - (-2);
+
+
+
+
+
+Strings
+strings are text such as Hello World ! 
+need to be enclosed in single or double quotes. 
+to get quotes to schow need to use escape chars. 
+
+let message = "Hello \"World\"" would display Hello "World"
+
+Escape notation can be found on the MDN for JS on Google. 
+
+\n is new line.
+\t is a tab. 
+
+string can be created with a backtick `Hello World` these allow interperlation can put variables in the string.
+
+let name = `Mike`;
+let message = `Hello ${name}` would be Hello Mike.
+Backticks also allow you to enter new lines in a string without escape chars. 
+
+
+
+
+Manipulating Strings. 
+Can manipulate strings concatonation with + to add strings together. 
+let message = "Hello" 
+message = messsage + world would make the message Hello World. 
+takes one string and adds another string to it. no other math operators. 
+Can use methods but will be covered later, an action we can take on a string. 
+message.toLowerCase() - coverts to lower case. 
+message.substring(1) - makes string smaller would drop the H. 
+MDN String reference for all of this. 
+
+can also use properties. such as
+message = message.length would return the length of the string as a number. 
+
+
+
+
+Covert Strings & Numbers. 
+for example 
+let amount = 123;
+amount = amount.toString();
+showMessage(amount);
+would convert it to a string "123" rather than 123.
+
+covert string to number. 
+let amount = Number.parseFloat ("123.12");
+cannot deal with non numerical values in the string at the start but can be later in the string. 
+
+
+
+
+Boolean Variables.
+can be true or false. only 2 values
+true = yes / 1  false = no / 0 
+common operation on booleans is flipping them. ie true = false. 
+let saved = true;
+saved = !saved would equal false. 
+
+
+
+
+Null & Undefinded. 
+null = null undefined = undefined
+if a var is setup with no value it will be undefined
+if a var is set to null it will wipe out the value, thats JS best practice. 
+when wiping values use null not undefined.
+
+
+
+
+Objects & Symbols
+objects are a very important part of JS. 
+the below is an example of an object. 
+let person = {
+    firstName: "John"
+    lastName: "Oram"
+};
+
+showMessage(person.firstName); - would show the firstName property of the person Object
+
+Object is a data type.
+
+Symbols can be used as property in a object but it is hidden, you may want to hide the property. 
+
+
+
+
+
+
+Program Flow. 
+Sometimes you want to include code / loop code. this refers to program flow. 
+
+
+
+
+
+Conditionals using if()
+if condition is true execute block if not don't. 
+if (5 === 5) {
+    console.log("yes");
+}
+
+code block is code between opening and closing {}. 
+
+let state = "FL";
+let taxPercent = 0;
+
+if (state === "FL) {
+    taxPercent = 7;
+}
+
+console.log(taxPercent) - would show 7 in the console. 
+
+let state = "FL";
+let taxPercent = 7;
+
+if (state !== "FL) {
+    taxPercent = 0;
+}
+
+console.log(taxPercent) - would show 7 in the console as the state is equal to Florida
+
+> greater than 
+< less than 
+>= greater or equal 
+<= less than or equal
+=== equality same and same type. 
+!== not ineditcally equal. 
+
+
+
+
+
+Truthy and Falsy. 
+
+Falsy = false , 0 "" '' or empty strings, null, undefined, NaN.
+
+Truthy = everything not Falsy. 
+
+
+if ( +(1.1 + 1.3).toFixed(2) === 2.4) {
+    showMessage(true);
+}
+
+
+
+
+if ... else 
+will execute if condition of If is not true. 
+
+let state = 'FL';
+let taxPercent;
+
+if (state === 'FL') {
+    taxPercent = 7
+}
+else {
+    taxPercent = 0;
+}
+
+console.log(taxPercent); - would show 7 if state is not FL it would be 0. 
+
+
+let state = 'FL';
+let taxPercent;
+
+if (state === 'FL') {
+    taxPercent = 7
+}
+else if (state === 'NY') {
+    taxPercent = 8.875;
+}
+
+always use curly braces. 
+
+
+
+
+Comparing === & ==
+
+Testing for equality using === 
+testing for == does not compare the type of the data. it will convert it. 
+
+!== not equal 
+
+!= java will convert the type. 
+
+always use !== or ===
+
+
+
+The ternary operator. 
+
+works with 3 differnt values - shortcut for if... else. 
+
+// (condition) ? true-statement : false-statement. 
+
+let message = (price > 10) ? 'expensive' : 'cheap';
+showMessage(message); //expensive
+
+
+
+
+
+Block scope using let. 
+var declared in a block are only available in the block. 
+it will dissapear after the code block has been run. 
+
+if (true) {
+    let value = 'yes';
+}
+console.log(value); - this won't be defined as the variable is initialized in the block and keeps in the block. 
+
+
+
+
+Looping with for()
+this will loop overcode and execute it over and over again. 
+
+for (let i = 0: i < 3; i++) {
+    console.log(i);
+}
+
+would show 0 1 2 in the console and then exit the for loop. 
+
+common bug is the condition <= >= careful using these if you want less than or less than equal or so on. 
+
+Or a loop can never finish. in the above i-- would loop forever (Infinite loop) control C will kill this in the console.
+
+
+
+
+Looping with while()
+let count = 1;
+white (count < 5) {
+    console.log(count);
+    count++;
+}
+
+would show 1 2 3 4 in the console 
+i is traditional to use in loops. - needs to complete or it will infinite loop. 
+
+
+
+
+do While () loop. 
+
+used when you want the code to run atleast once. 
+
+let count = 1;
+do {
+    console.log(count);
+    count++;
+} while (count < 5);
+
+1 2 3 4 would show in the console. 
+
+tests the while condition after the do runs rather than before in a while() loop. 
+
+
+
+
+Functions
+Block of code that is named / variable can use that to execute the code. most code will be a function. 
+your not writing it in a function its in a global scope that will be pretty limited. 
+
+
+
+
+Function Basics. 
+named block of code. 
+
+function showMessage() {
+    console.log("in a function");
+}
+
+anything between {} is the body of the function
+
+showMessage;
+showMessage; 
+would show the message twice in the console. 
+
+
+
+Function Expressions.
+let fn = function () {
+
+}
+
+fn(); calls the function. 
+
+Assinging a function to an expression. 
+
+let myFunction = function logging () {
+    console.log("Here is a message");
+}
+
+logMessage();
+logMessage();
+
+if you calling logging it wouldn't be defined. 
+
+
+
+passing information to functions. 
+pass info to send data to the function. 
+
+function showMessage (message) {
+    console.log(message);
+}
+
+showMessage("First Message");
+showMessage("Second Message);
