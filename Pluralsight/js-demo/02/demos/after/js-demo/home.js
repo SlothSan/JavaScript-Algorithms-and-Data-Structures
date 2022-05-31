@@ -1,3 +1,36 @@
+'use strict';
+
+
+productId = 456;
+
+console.log(productId);
+
+
+
+
+
+
+
+
+
+
+/*function showProductID() {
+    let productId = 12345;
+
+    function fix() {
+        console.log('in fix', productId);
+    }
+
+    fix();
+
+    console.log('in showProductId', productId);
+}
+
+showProductID();
+*/
+
+
+
 /*let price = 20,
     name = 'Hiking Boots',
     discounted = false,
@@ -63,11 +96,26 @@ button.addEventListener('click', function(){
     }
 });*/
 
-const values = ['a', 'b', 'c'];
+/*const values = ['a', 'b', 'c'];
 values.unshift('hello', 'world');
+console.log(values); */
+/*
+//forEach()
+const values = ['a', 'b', 'c'];
+values.forEach(function(item) {
+    console.log(item);
+});
+*/
+//a b c execute a function on each element of the array.
+
+/*values.splice(2, 0, 'for');
+
 console.log(values);
-
-
+*/
+/*
+const containers = document.getElementsByClassName('container');
+containers[0].classList.add('d-none');
+console.log(containers);
 
 
 let myFunction = function (message, firstName) {
@@ -98,4 +146,4 @@ function getSecretCode(value) {
 let secretCode = getSecretCode(2);
 
 
-
+*/

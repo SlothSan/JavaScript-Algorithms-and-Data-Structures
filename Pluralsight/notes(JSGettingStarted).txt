@@ -840,3 +840,168 @@ adds element to the beginning of the array.
 
 
 slice() and splice()
+used commonly with arrays. 
+slice creates a new array 
+splice inserts deletes elements in an array. 
+
+//slice() 
+const values = ['a', 'b', c];
+const newValues = values.slice(1, 2); // first argument is where we start are slice / second argument is the ending element. 
+console.log(newValues); // b
+
+This leaves the original array the same. 
+
+newValues = values.slice(); // would copy the whole array.
+
+//splice()
+const values = ['a', 'b', c];
+values.splice(1, 1); // first arg index of element deleting / second is amount to delete. 
+console.log(values); // a c
+
+//splice() for inserting
+const values = ['a', 'b', c];
+values.splice(1, 0, 'foo'); // first arg index of element deleting / second is amount to delete. / third is what to insert 
+console.log(values); // a foo b c
+
+MDN has alot more on this topic. 
+
+
+Array searching and looping
+find index of a element using looping.
+
+//indexOf()
+const values = ['a', 'b', 'c'];
+console.log( values.indexOf('c') ); //2 
+console.log( values.indexOf('d') ); //-1 nothing in the search
+
+//filter()
+const values = ['a', 'b', 'c'];
+const set = values.filter(function(item){
+    return item > 'b'
+});
+console.log( set ); //c is the only item greater than C in the array. 
+
+//find()
+const values = ['a', 'bbb', 'c']; 
+const found = values.find(function(item){
+    return item.length > 1;
+})
+console.log( found ); // bbb matches first item thats longer than 1 ie bbb.
+
+//forEach()
+const values = ['a', 'b', 'c'];
+values.forEach(function(item) {
+    console.log(item);
+});
+//a b c execute a function on each element of the array.
+
+more methods on the MDN for Arrays. 
+
+
+
+
+Arrays in the DOM. 
+Arrays can be used to modify the DOM. 
+const containers = document.getElementsByClassName('container');
+containers[0].classList.add('d-none');
+console.log(containers);
+
+
+
+
+
+Scope & Hoisting.
+these are concepts that can throw you off. 
+global scope. 
+function scope.
+var & hoisting.
+undeclared variables.
+strict mode. 
+
+global scope.
+2 scopes in JS , global / function scope. 
+scope is the area in which you can access the variable. 
+
+coding directly in JS is Global scope. 
+
+let productId = 12345; //Global Scope. 
+
+function showProductID() {
+    console.log(productId)
+}
+
+showProductID();
+
+looks outward into the global scope to find productID.
+Global cope includes all JS files in a project.
+
+polluting globalscope = bad. too many variables being declared globally, can be confusing and create bugs. 
+
+only create 1 variable in the global scope. 
+
+const app = {
+    productId: 12345,
+    userName: 'Mike',
+    orderNumber: 789
+
+}; //Global Scope. 
+
+best practice is to do this as an object.
+functions in global scope. 
+
+
+
+
+Function Scope. 
+can only be accessed within the function if variable is declared in the function. 
+
+function showProductID() {
+    let productId = 12345;
+    
+    function fix() {
+        let productId = 6789;
+        console.log('in fix', productId);
+    }
+
+    fix();
+
+    console.log('in showProductId', productId);
+}
+
+showProductID();
+
+/*in fix 6789 
+in showProductId 12345*/
+
+
+
+
+
+var & hoisting. 
+use let or const. to avoid hoisting. 
+
+this doesn't apply to functions. 
+
+functions will execute before being declared. 
+
+JS runs over 2 passes. hositing fine for functions, bad for variables and constants avoid VAR. 
+
+
+
+
+
+Undeclared variables and strict mode. 
+in earlier JS could use variables before declaring them. 
+productId = 456;
+
+console.log(productId);
+this is bad. 
+
+'use strict';
+
+
+productId = 456;
+
+console.log(productId);
+
+this will stop it from happening. 
