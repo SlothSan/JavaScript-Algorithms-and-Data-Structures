@@ -586,3 +586,180 @@ function changePercentOff(percentage) {
 }
 
 changePercentOff(30);
+
+
+
+
+
+
+Objects and the DOM. 
+Objects can contain multiple properties / data - document object model (DOM).
+
+
+
+
+Object Properties.
+Objects usually have several properties. 
+Object is a group of values or properties
+
+let person = { 
+    name: "John",
+    age: 32,
+    partTime: false
+};
+
+console.log(person.name); //John
+console.log(person.age); //32
+console.log(person.partTime); //false
+
+let mySymbol = Symbol();
+
+let person = {
+    name: 'John',
+    age: 32,
+    partTime: false,
+    [mySymbol]: 'secretInformation'
+};
+
+person.age = 40;
+person['name'] = 'Mike';
+
+
+
+
+Object Methods.
+can attach functions to objects these are called methods. 
+
+this keyword to access data in its own object during a object method.always check this is there if using data from current object. 
+
+
+let mySymbol = Symbol();
+
+let person = {
+    name: 'John',
+    age: 32,
+    partTime: false,
+    [mySymbol]: 'secretInformation',
+    showInfo: function(realAge) {
+        showMessage(this.name + " is " + realAge)
+    }
+};
+
+person.age = 40;
+person['name'] = 'Mike';
+
+person.showInfo(34);
+
+
+
+
+
+Passing Objects to functions. 
+
+let person = {
+    name: 'John',
+    age: 32,
+    partTime: false
+}
+
+function incrementAge(person){
+    person.age++;
+}
+
+incrementAge(person);
+
+showMessage(person.age);
+
+cant change the object but can change the data due to passing by refernce. 
+
+
+
+
+standard built in objects. 
+
+check the MDN for Javescript - standard built in Objects
+Date object
+
+let now = new Date();
+showMessage(now.toDateString());
+
+
+Math built in object. 
+showMessage(Math.abs(-42));
+showMessage(Math.random());
+
+
+String
+let s = "hello";
+showMessage(s.charAt(0));
+
+
+number object
+check the MDN on it. 
+
+
+
+
+The Document Object Model (DOM)
+used for JS on webpages. 
+function showMessage(message){
+    document.getElementById('message').textContent = message;
+}
+
+MDN DOM model look through it its uge. 
+Tags are elements in HTML (h1 etc)
+
+
+
+
+Styling DOM elements
+style using JS. 
+MDN HTML Element getElement returns it.
+ele.style.color = blue;
+
+const header = document.getElementById('message');
+
+header.style.color = 'blue';
+
+dashes don't work. use camelCase instead
+header.style.fontWeight = 400;
+
+
+
+
+Detecting Button Clicks in JS from a HTML page. 
+const button = document.getElementById('see-review');
+
+button.addEventListener('click', function(){
+    console.log('click');
+});
+
+
+
+
+Showing and hiding dom elements. 
+const button = document.getElementById('see-review');
+
+button.addEventListener('click', function(){
+    const review = document.getElementById('review');
+
+    review.classList.remove('d-none');
+});
+
+
+const button = document.getElementById('see-review');
+
+button.addEventListener('click', function(){
+    const review = document.getElementById('review');
+    if(review.classList.contains('d-none')) {
+        review.classList.remove('d-none');
+        button.textContent = "Close Review";
+    }
+    else {
+        review.classList.add('d-none');
+        button.textContent = "See Review";
+    }
+});
+
+
+MDN for DOM and Events. 
