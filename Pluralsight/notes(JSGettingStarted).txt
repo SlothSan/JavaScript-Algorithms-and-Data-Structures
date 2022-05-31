@@ -763,3 +763,80 @@ button.addEventListener('click', function(){
 
 
 MDN for DOM and Events. 
+
+
+
+
+
+Arrays in JS. 
+Arrays hold multiple objects or values. 
+
+
+
+Creating & initializing an Array. 
+// create an array. 
+let values = []; // empty array. 
+
+let values = [1, 2, 3]; // 1 2 3 values has 3 elements. 
+
+let values = Array.of(1, 2, 3); // can be done using a method. 
+
+index starts at 0 for elements in an array. 
+arrays are objects. 
+const values = ['a', 'b', 'c'];
+console.log(Array.isArray(values)); // returns true. 
+
+MDN Array for more methods attached to the object.
+
+
+
+
+Accessing Array Items(elements).
+
+let values = ['a', 'b', 'c'];
+console.log(values[0]); // a
+console.log(values[1]); // b
+console.log(values[2]); // c
+console.log(values[3]); // undefined
+
+const values = ['a', 'b', 'c'];
+values[0] = 'aaa'
+console.log(values[0]);
+
+
+
+
+Manipulating Arrays. 
+
+//push 
+const values = ['a', 'b', 'c'];
+values.push('d');
+console.log(values); // a b c d
+
+adds to the end. 
+
+//pop()
+const values = ['a', 'b', 'c'];
+const last = values.pop();
+console.log(last); // c
+
+removes from the end
+
+//shift()
+const values = ['a', 'b', 'c'];
+const first = values.shift();
+console.log(first); // a
+
+takes the element from the front of the array., array will only contains 2 elements now. 
+
+//unshift()
+const values = ['b', 'c'];
+values.unshift();
+console.log(values); // a b c
+
+adds element to the beginning of the array. 
+
+
+
+
+slice() and splice()

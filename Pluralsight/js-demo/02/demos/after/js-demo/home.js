@@ -49,7 +49,7 @@ let s = "hello";
 showMessage(s.charAt(0));
 */
 
-const button = document.getElementById('see-review');
+/*const button = document.getElementById('see-review');
 
 button.addEventListener('click', function(){
     const review = document.getElementById('review');
@@ -61,7 +61,11 @@ button.addEventListener('click', function(){
         review.classList.add('d-none');
         button.textContent = "See Review";
     }
-});
+});*/
+
+const values = ['a', 'b', 'c'];
+values.unshift('hello', 'world');
+console.log(values);
 
 
 
