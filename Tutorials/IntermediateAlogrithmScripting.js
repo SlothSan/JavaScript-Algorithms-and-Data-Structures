@@ -59,3 +59,51 @@ function diffArray(arr1, arr2) {
 You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
 
 Note: You have to use the arguments object.*/
+
+function destroyer(arr) {
+  const valsToDestroy = Object.values(arguments).slice(1); //get values to remove and assign to a variable.
+  const filteredArray = []; //setup an empty array to push filtered items into.
+
+  for (let i = 0; i < arr.length; i++) { //loop through the whole array. 
+    let removeElement = false; // set removeElement to false intially. 
+    for (let j = 0; j < valsToDestroy.length; j++) { // for each item in the array loop through the vals to destroy.
+      if (arr[i] === valsToDestroy[j]) { //if array value matches values to destroy set remove element to true.
+        removeElement = true;
+      }
+    }
+    if (!removeElement) { //if remove element = false push the current element to the filteredArray.
+      filteredArray.push(arr[i]);
+    }
+  }
+  console.log(filteredArray);
+  return filteredArray; //return the filtered array. 
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+// Cleaner ways of doing the above. 
+
+function destroyer(arr) {
+  const valsToDestroy = Array.from(arguments).slice(1); //create the array from arguments 
+  return arr.filter(function(val) { //Return the filtered array, using includes() in the callback function to check if val is not in valsToRemove; returning true to keep the value in the original array or false to remove it.
+    return !valsToDestroy.includes(val);
+  });
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+//Even cleaner way of doing the above. 
+
+function destroyer(arr, ...valsToRemove)  { //use spread operator to retrieve the arguments and pass to a variable
+  return arr.filter(elem => !valsToRemove.includes(elem)); //return the filtered array using .includes()
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+/*Wherefore art thou
+
+Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
+
+For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument */
+
