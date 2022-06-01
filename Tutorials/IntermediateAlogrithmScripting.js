@@ -107,3 +107,36 @@ Make a function that looks through an array of objects (first argument) and retu
 
 For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the name and its value, that was passed on as the second argument */
 
+function whatIsInAName(collection, source) {
+  const sourceKeys = Object.keys(source);
+  return collection.filter(obj => {
+    for (let i = 0; i < sourceKeys.length; i++) {
+      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+whatIsInAName(
+  [
+    { first: "Romeo", last: "Montague" }, 
+    { first: "Mercutio", last: null }, 
+    { first: "Tybalt", last: "Capulet" }
+  ], 
+  { last: "Capulet" }
+);
+
+
+/*Spinal Tap Case
+
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.*/
+
+function spinalCase(str) {
+  var regex = /\s+|_+/g
+  str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+ return str.replace(regex, "-").toLowerCase();
+}
+
+spinalCase('This Is Spinal Tap');
